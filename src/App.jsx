@@ -1,28 +1,25 @@
-import { useState } from 'react'
+import HeroCover from './components/HeroCover';
+import KPIGrid from './components/KPIGrid';
+import SpendingChart from './components/SpendingChart';
+import TransactionsList from './components/TransactionsList';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-slate-950 text-white">
+      <HeroCover />
+      <main className="relative z-10 -mt-16 pb-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <KPIGrid />
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-5 gap-6">
+            <div className="lg:col-span-3">
+              <SpendingChart />
+            </div>
+            <div className="lg:col-span-2">
+              <TransactionsList />
+            </div>
+          </div>
         </div>
-      </div>
+      </main>
     </div>
-  )
+  );
 }
-
-export default App
